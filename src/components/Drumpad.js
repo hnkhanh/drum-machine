@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
-  
 const Drumpad = ({sound, volume, setRecording}) =>{
-
     const [active, setActive] = useState(false)
-
     useEffect(() => {
         document.addEventListener('keydown', handleKeypress);
         return () => {
@@ -12,7 +9,6 @@ const Drumpad = ({sound, volume, setRecording}) =>{
         }
     })
    
-
     const handleKeypress = (e) => {
         if(e.keyCode === sound.keyCode) {
             playSound();
@@ -31,7 +27,7 @@ const Drumpad = ({sound, volume, setRecording}) =>{
 
     return (
         <div>
-            <div className= {`drum-pad btn ${active && 'waves-effect waves-light yellow btn'}`} 
+            <div className= {`drum-pad btn ${active && 'waves-effect waves-light #ff7043 deep-orange lighten-1 btn'}`} 
             id={sound.id} 
             onClick={playSound}>
             {sound.keyTrigger}

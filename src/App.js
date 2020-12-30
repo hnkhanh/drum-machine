@@ -1,5 +1,4 @@
 import React , {useState} from 'react';
-import './App.css';
 import Display from './components/Display';
 import Drumpad from './components/Drumpad';
 
@@ -26,10 +25,10 @@ const data = [
     keyCode: 65,
     keyTrigger: 'A',
     id: 'Shaker',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3'
+    url: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/CB.mp3'
   },
   {
-    keyCode: 83,
+    keyCode: 83, 
     keyTrigger: 'S',
     id: 'Open-HH',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3'
@@ -56,7 +55,7 @@ const data = [
     keyCode: 67,
     keyTrigger: 'C',
     id: 'Snare',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
+    url: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/BD0010.mp3'
   }
 ];
 const App = () => {  
@@ -64,12 +63,15 @@ const App = () => {
   const [recording, setRecording] = useState('');
   return (
     <div className="App">
+      <h1>Drum Machine</h1>
+      <h5>Click or press the keyboard to create your music!</h5>
       <div id="drum-machine" className="row">
-        <h4>Drum Machine</h4>
+        <div className="pad col s4 offset-s2" >
         {data.map(sound => (
           <Drumpad sound={sound} volume={volume} setRecording={setRecording}/>
         ))}
-        <Display setVolume={setVolume} recording={recording} volume={volume}/>
+        </div>
+        <Display  setVolume={setVolume} recording={recording} volume={volume}/>
       </div>
     </div>
   );
